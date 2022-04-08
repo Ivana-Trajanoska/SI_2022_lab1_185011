@@ -1,0 +1,207 @@
+Student: Ivana Trajanoska
+Index No.: 185011
+
+Task 4: The command to clone the repository from GitHub to the local machine ~
+$ git clone https://github.com/Ivana-Trajanoska/SI_2022_lab1_185011.git
+
+To enter the ropository:
+$ cd SI_2022_lab1_185011
+
+
+Task 5: Add new text file
+~Pc@DESKTOP-8KGSLV6 MINGW64 ~/OneDrive/Documents/GitHub/SI_2022_lab1_185011 (master)
+$ touch shopping_list.txt
+
+In the text editor, we add five random items: milk, bread, bananas, chocolate, and water. If we were to add this items through the console, that would look like:
+~Pc@DESKTOP-8KGSLV6 MINGW64 ~/OneDrive/Documents/GitHub/SI_2022_lab1_185011 (master)
+$ echo $'milk\nbread\nbananas\nchocolate\nwater' > shopping_list.txt
+
+$ git status
+	On branch master
+	Your branch is up to date with 'origin/master'.
+
+	Untracked files:
+  	(use "git add <file>..." to include in what will be committed)
+	        shopping_list.txt
+
+	nothing added to commit but untracked files present (use "git add" to track)
+
+We add the file to the staging area, allowing them to be tracked: $ git add shopping_list.txt
+Making the commit: $ git commit -m 'Add 5 items to the shopping list'
+After this command we’ll get the following output:
+	[master 7a98bbb] Ádd 5 items to the shopping list
+ 	1 file changed, 5 insertions(+)
+ 	create mode 100644 shopping_list.txt
+
+Task 6: Again in the text editor we are updating the list, adding quantity of each item. And again if we were make the changes using the console that would look like:
+~Pc@DESKTOP-8KGSLV6 MINGW64 ~/OneDrive/Documents/SI_2022_lab1_185011 (master)
+$ echo $'milk x 1\nbread x 2\nbananas x 5\nchocolate x 1\nwater x 1' > shopping_list.txt
+
+Now if we check the status with the $ git status command, we get the following message:
+	On branch master
+	Your branch is ahead of 'origin/master' by 1 commit.
+  	(use "git push" to publish your local commits)
+
+	Changes not staged for commit:
+  	(use "git add <file>..." to update what will be committed)
+  	(use "git restore <file>..." to discard changes in working directory)
+	        modified:   shopping_list.txt
+
+	no changes added to commit (use "git add" and/or "git commit -a")
+
+If we compare the previous status message with this one, we can see that in the first message we were informed that we have untracked file – git has not any knowledge of existing such file. But since we added it, and after the changes we made in the file the message says that the file has been modified.
+Performing add and commit command at once: 
+~Pc@DESKTOP-8KGSLV6 MINGW64 ~/OneDrive/Documents/SI_2022_lab1_185011 (master)
+$ git commit -am 'Add quantities to the items'
+
+ 	[master f389a50] Add quantities to the items
+ 	1 file changed, 5 insertions(+), 5 deletions(-)
+
+Task 7: Creating the two branches
+~Pc@DESKTOP-8KGSLV6 MINGW64 ~/OneDrive/Documents/SI_2022_lab1_185011 (master)
+$ git branch branch1
+~Pc@DESKTOP-8KGSLV6 MINGW64 ~/OneDrive/Documents/SI_2022_lab1_185011 (master)
+$ git branch branch2
+
+Task 9: Synchronizing the local branches with the remote repository
+~Pc@DESKTOP-8KGSLV6 MINGW64 ~/OneDrive/Documents/SI_2022_lab1_185011 (master)
+$ git push --set-upstream origin branch1
+	Enumerating objects: 7, done.
+	Counting objects: 100% (7/7), done.
+	Delta compression using up to 8 threads
+	Compressing objects: 100% (5/5), done.
+	Writing objects: 100% (6/6), 688 bytes | 688.00 KiB/s, done.
+	Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
+	remote:
+	remote: Create a pull request for 'branch1' on GitHub by visiting:
+	remote:      https://github.com/Ivana-Trajanoska/SI_2022_lab1_185011/pull/new/branch1
+	remote:
+	To https://github.com/Ivana-Trajanoska/SI_2022_lab1_185011.git
+ 	* [new branch]      branch1 -> branch1
+	branch 'branch1' set up to track 'origin/branch1'.
+
+~Pc@DESKTOP-8KGSLV6 MINGW64 ~/OneDrive/Documents/SI_2022_lab1_185011 (master)
+$ git push --set-upstream origin branch2
+	Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+	remote:
+	remote: Create a pull request for 'branch2' on GitHub by visiting:
+	remote:      https://github.com/Ivana-Trajanoska/SI_2022_lab1_185011/pull/new/branch2
+	remote:
+	To https://github.com/Ivana-Trajanoska/SI_2022_lab1_185011.git
+ 	* [new branch]      branch2 -> branch2
+	branch 'branch2' set up to track 'origin/branch2'.
+
+Task 10: Switch to branch1:
+~Pc@DESKTOP-8KGSLV6 MINGW64 ~/OneDrive/Documents/SI_2022_lab1_185011 (master)
+$ git switch branch1
+	Switched to branch 'branch1'
+	Your branch is up to date with 'origin/branch1'.
+
+Task 11: Changing the quantity of the fifth item, from 1 to 10, then we perform add and commit commands:
+~Pc@DESKTOP-8KGSLV6 MINGW64 ~/OneDrive/Documents/SI_2022_lab1_185011 (branch1)
+$ git commit -am 'Change quantity of item #5'
+	[branch1 5dc1e24] Change quantity of item #5
+ 	1 file changed, 1 insertion(+), 1 deletion(-)
+
+Task 12: Switch to master branch
+~Pc@DESKTOP-8KGSLV6 MINGW64 ~/OneDrive/Documents/SI_2022_lab1_185011 (branch1)
+$ git switch master
+	Switched to branch 'master'
+	Your branch is ahead of 'origin/master' by 2 commits.
+ 	 (use "git push" to publish your local commits)
+
+Task 13: Changing the quantity of the second item from 2 to 5, then we perform add and commit commands:
+~Pc@DESKTOP-8KGSLV6 MINGW64 ~/OneDrive/Documents/SI_2022_lab1_INDEX (master)
+	$ git add .
+
+~Pc@DESKTOP-8KGSLV6 MINGW64 ~/OneDrive/Documents/SI_2022_lab1_INDEX (master)
+$ git commit –m ‘Change quantity of item #2’
+	[master 5992408] Change quantity of item #2
+	 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Task 14: Synchronizing branches to master
+~Pc@DESKTOP-8KGSLV6 MINGW64 ~/OneDrive/Documents/SI_2022_lab1_185011 (master)
+$ git push --set-upstream origin branch1
+	Enumerating objects: 5, done.
+	Counting objects: 100% (5/5), done.
+	Delta compression using up to 8 threads
+	Compressing objects: 100% (3/3), done.
+	Writing objects: 100% (3/3), 347 bytes | 347.00 KiB/s, done.
+	Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+	remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+	To https://github.com/Ivana-Trajanoska/SI_2022_lab1_185011.git
+	   f389a50..5dc1e24  branch1 -> branch1
+	branch 'branch1' set up to track 'origin/branch1'. 
+	
+~Pc@DESKTOP-8KGSLV6 MINGW64 ~/OneDrive/Documents/SI_2022_lab1_185011 (master)
+$ git push --set-upstream origin branch2
+	Everything up-to-date
+	branch 'branch2' set up to track 'origin/branch2'.
+
+Task 15: Switch to branch2
+~Pc@DESKTOP-8KGSLV6 MINGW64 ~/OneDrive/Documents/SI_2022_lab1_185011 (master)
+$ git switch branch2
+	Switched to branch 'branch2'
+	Your branch is up to date with 'origin/branch2'.
+
+Task 16: Modify the name of the forth element, from chocolate to ice cream, and commit the changes
+~Pc@DESKTOP-8KGSLV6 MINGW64 ~/OneDrive/Documents/SI_2022_lab1_185011 (branch2)
+$ git commit -am 'Modify item #4'
+	[branch2 941edda] Modify item #4
+	 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Task 18: Changing the last commit, adding another 6th element in the same commit
+~Pc@DESKTOP-8KGSLV6 MINGW64 ~/OneDrive/Documents/SI_2022_lab1_185011 (branch2)
+$ git commit --amend -m 'Modify item #4 and add item #6'
+	[branch2 e446999] mend
+	 1 file changed, 2 insertions(+), 1 deletion(-)
+
+~Pc@DESKTOP-8KGSLV6 MINGW64 ~/OneDrive/Documents/SI_2022_lab1_185011 (branch2)
+$ git push -f origin branch2
+	Enumerating objects: 8, done.
+	Counting objects: 100% (8/8), done.
+	Delta compression using up to 8 threads
+	Compressing objects: 100% (6/6), done.
+	Writing objects: 100% (6/6), 659 bytes | 659.00 KiB/s, done.
+	Total 6 (delta 1), reused 0 (delta 0), pack-reused 0
+	remote: Resolving deltas: 100% (1/1), done.
+	To https://github.com/Ivana-Trajanoska/SI_2022_lab1_185011.git
+	   f389a50..e446999  branch2 -> branch2
+
+~Pc@DESKTOP-8KGSLV6 MINGW64 ~/OneDrive/Documents/SI_2022_lab1_185011 (branch2)
+$ git commit -am 'Modify item #4 and add item #6'
+	On branch branch2
+	Your branch is up to date with 'origin/branch2'.
+
+	nothing to commit, working tree clean
+
+Task 20: Switch to master branch:
+~Pc@DESKTOP-8KGSLV6 MINGW64 ~/OneDrive/Documents/SI_2022_lab1_185011 (branch2)
+$ git switch master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 3 commits.
+  (use "git push" to publish your local commits)
+
+Merging branch1 with master:
+~Pc@DESKTOP-8KGSLV6 MINGW64 ~/OneDrive/Documents/SI_2022_lab1_185011 (master)
+$ git merge branch1
+	Auto-merging shopping_list.txt
+	Merge made by the 'ort' strategy.
+	 shopping_list.txt | 2 +-
+	 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Task 21: Merging branch2 with master:
+~Pc@DESKTOP-8KGSLV6 MINGW64 ~/OneDrive/Documents/SI_2022_lab1_185011 (master)
+$ git merge branch2
+	Auto-merging shopping_list.txt
+	CONFLICT (content): Merge conflict in shopping_list.txt
+	Automatic merge failed; fix conflicts and then commit the result.
+
+When merging branch1 with master branch, there were not any conflicts.
+When merging branch2 with master, there was a conflict. As solution of this conflict, I chose to accept the changes made in the branch2. So, the list of products would look like:
+milk x 1
+bread x 2
+bananas x 5
+ice cream x 1
+water x 1
+kiwi
