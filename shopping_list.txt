@@ -1,5 +1,5 @@
-milk
-bread
-bananas
-chocolate
-water
+milk x 1
+bread x 2
+bananas x 5
+chocolate x 1
+water x 1
