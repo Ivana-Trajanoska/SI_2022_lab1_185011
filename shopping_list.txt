@@ -3,3 +3,4 @@ bread x 2
 bananas x 5
 ice cream x 1
 water x 1
+kiwi
